@@ -487,12 +487,12 @@ export const IndexPageTemplate = ({
 
 IndexPageTemplate.propTypes = {
   title: PropTypes.string,
-  sectionOne: PropTypes.object,
+  sectionOne: PropTypes.array,
   sectionTwo: PropTypes.object,
   sectionThree: PropTypes.object,
   sectionFour: PropTypes.object,
-  sectionFive: PropTypes.object,
-  sectionSix: PropTypes.object,
+  sectionFive: PropTypes.array,
+  sectionSix: PropTypes.array,
   sectionSeven: PropTypes.object,
   contactUs: PropTypes.object,
   posts: PropTypes.array,
