@@ -66,7 +66,7 @@ export const IndexPageTemplate = ({
             ></li>
           </ol>
           <div className="u-carousel-inner" role="listbox">
-            {sectionOne.map((sectionOne, index) => (
+            {sectionOne.map((sec, index) => (
               <div
                 key={index}
                 className={`active u-align-center u-carousel-item u-container-style u-image u-slide u-image-${
@@ -77,14 +77,14 @@ export const IndexPageTemplate = ({
               >
                 <div className="u-container-layout u-container-layout-1">
                   <h2 className="u-text u-text-body-alt-color u-text-default u-text-1">
-                    {sectionOne.title}
+                    {sec.title}
                   </h2>
                   <p className="u-text u-text-body-alt-color u-text-2">
-                    {sectionOne.subtitle}
+                    {sec.subtitle}
                   </p>
-                  {sectionOne.link && (
+                  {sec.link && (
                     <a
-                      href={sectionOne.link}
+                      href={sec.link}
                       className="u-border-2 u-border-white u-btn u-button-style u-hover-black u-none u-text-body-alt-color u-text-hover-white u-btn-1"
                     >
                       read more
