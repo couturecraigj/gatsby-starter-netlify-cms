@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Helmet } from 'react-helmet'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
@@ -8,10 +8,12 @@ import { withPrefix } from 'gatsby'
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
+  const [isOpen, setIsOpen] = useState(false)
+  console.log(isOpen)
   return (
-    <div>
+    <div className={`u-body u-overlap ${isOpen ? `menu-overlay u-offcanvas-opened` : ''}`}>
       <Helmet>
-        <html lang="en" />
+        <html lang="en" className="u-responsive-xl" />
         <title>{title}</title>
         <meta name="description" content={description} />
 
@@ -48,8 +50,8 @@ const TemplateWrapper = ({ children }) => {
           content={`${withPrefix('/')}img/og-image.jpg`}
         />
       </Helmet>
-      <Navbar />
-      <div>{children}</div>
+      <Navbar handleIsOpen={setIsOpen} />
+      {children}
       <Footer />
     </div>
   )
