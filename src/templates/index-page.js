@@ -29,12 +29,12 @@ const useCarouselTransition = (ms = 500, handleChangeActiveImage = () => {}) => 
 };
 
 export const IndexPageTemplate = ({
-  sectionOne,
+  sectionOne = [],
   sectionTwo,
   sectionThree,
   sectionFour,
-  sectionFive,
-  sectionSix,
+  sectionFive = [],
+  sectionSix = [],
   posts,
   sectionSeven,
   contactUs,
@@ -295,7 +295,7 @@ export const IndexPageTemplate = ({
           <h3 className="u-text u-text-default u-text-1">{sectionSeven.title}</h3>
           <p className="u-text u-text-2">{sectionSeven.subtitle}</p>
           <div className="u-blog u-expanded-width u-repeater u-repeater-1">
-            {posts.edges.map((post) => (
+            {posts.map((post) => (
               <div className="u-container-layout u-similar-container u-valign-bottom u-container-layout-3">
                 <img
                   alt=""
@@ -501,6 +501,7 @@ IndexPageTemplate.propTypes = {
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
   console.log(frontmatter.sectionOne);
+  if (!frontmatter.sectionOne) <div />
   return (
     <Layout>
       <IndexPageTemplate
@@ -512,7 +513,7 @@ const IndexPage = ({ data }) => {
         sectionFive={frontmatter.sectionFive}
         sectionSix={frontmatter.sectionSix}
         sectionSeven={frontmatter.sectionSeven}
-        posts={data.posts}
+        posts={data.posts.edges}
         contactUs={frontmatter.contactUs}
       />
     </Layout>
