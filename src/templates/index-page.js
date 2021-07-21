@@ -501,7 +501,7 @@ IndexPageTemplate.propTypes = {
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
   console.log(frontmatter.sectionOne);
-  if (!frontmatter.sectionOne) <div />
+  if (!frontmatter.sectionOne) return <div />;
   return (
     <Layout>
       <IndexPageTemplate
