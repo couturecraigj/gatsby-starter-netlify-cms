@@ -1,14 +1,20 @@
 ---
 templateKey: index-page
 sectionOne:
-  - image: /img/coffee.png
-    title: Lorem
-    subtitle: lorem
-    link: /nowhere
-  - image: /img/coffee.png
-    title: Lorem 2
-    subtitle: lorem 2
-    link: /nowhere
+  [
+    {
+      image: /img/coffee.png,
+      title: Lorem,
+      subtitle: lorem,
+      link: /nowhere
+    },
+    {
+      image: /img/coffee.png,
+      title: Lorem 2,
+      subtitle: lorem 2,
+      link: /nowhere
+    }
+  ]
 sectionTwo:
   image: /img/coffee.png
   title: Lorem
@@ -24,27 +30,41 @@ sectionFour:
   title: Lorem
   subtitle: lorem
 sectionFive:
-  - image: /img/coffee.png
-    title: Lorem
-    description: Lorem
-  - title: Lorem
-    description: Lorem
-    image: /img/blog-index.jpg
-  - subtitle: lorem
-    title: Lorem
-    description: Lorem
-    image: /img/blog-index.jpg
+  [
+    {
+      image: /img/coffee.png,
+      title: Lorem,
+      description: Lorem
+    },
+    {
+      title: Lorem,
+      description: Lorem,
+      image: /img/blog-index.jpg
+    },
+    {
+      title: Lorem,
+      description: Lorem,
+      image: /img/blog-index.jpg
+    }
+  ]
 sectionSix:
-  - image: /img/coffee.png
-    title: Lorem
-    description: Lorem
-  - title: Lorem
-    description: Lorem
-    image: /img/blog-index.jpg
-  - subtitle: lorem
-    title: Lorem
-    description: Lorem
-    image: /img/blog-index.jpg
+  [
+    {
+      image: /img/coffee.png,
+      title: Lorem,
+      description: Lorem
+    },
+    {
+      title: Lorem,
+      description: Lorem,
+      image: /img/blog-index.jpg
+    },
+    {
+      title: Lorem,
+      description: Lorem,
+      image: /img/blog-index.jpg
+    }
+  ]
 sectionSeven:
   image: /img/coffee.png
   title: Lorem
@@ -69,9 +89,4 @@ contactUs:
     placeholder: Enter your message
 image: /img/blog-index.jpg
 heading: Solar Pathways
-mainpitch:
-  title: Lorem
-  description: Lorem
-title: Solar Pathways
-description: Lorem
 ---

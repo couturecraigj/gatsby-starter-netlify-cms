@@ -28,6 +28,10 @@ const useCarouselTransition = (ms = 500, handleChangeActiveImage = () => {}) => 
   return [startTransition, outgoingImageClass, incomingImageClass];
 };
 
+const extractImage = (image) => {
+  return image?.childImageSharp ? image?.childImageSharp.fluid.src : image;
+};
+
 export const IndexPageTemplate = ({
   sectionOne = [],
   sectionTwo,
@@ -70,6 +74,12 @@ export const IndexPageTemplate = ({
               className={`active u-align-center u-carousel-item u-container-style u-image u-slide u-image-${
                 index + 1
               } ${carouselIndex === index ? outgoingClass : incomingClass}`}
+              style={{
+                backgroundImage:
+                  sec.image && extractImage(sec.image)
+                    ? `url(${extractImage(sec.image)})`
+                    : undefined,
+              }}
               data-image-width="1038"
               data-image-height="1080"
             >
@@ -128,7 +138,17 @@ export const IndexPageTemplate = ({
         </a>
       </div>
     </section>
-    <section className="u-clearfix u-image u-section-3" src="" id="carousel_a69b">
+    <section
+      style={{
+        backgroundImage:
+          sectionTwo.backgroundImage && extractImage(sectionTwo.backgroundImage)
+            ? `url(${extractImage(sectionTwo.backgroundImage)})`
+            : undefined,
+      }}
+      className="u-clearfix u-image u-section-3"
+      src=""
+      id="carousel_a69b"
+    >
       <div className="u-clearfix u-layout-wrap u-layout-wrap-1">
         <div className="u-layout">
           <div className="u-layout-row">
@@ -148,7 +168,15 @@ export const IndexPageTemplate = ({
                 </a>
               </div>
             </div>
-            <div className="u-container-style u-image u-layout-cell u-right-cell u-size-38 u-image-1">
+            <div
+              style={{
+                backgroundImage:
+                  sectionTwo.image && extractImage(sectionTwo.image)
+                    ? `url(${extractImage(sectionTwo.image)})`
+                    : undefined,
+              }}
+              className="u-container-style u-image u-layout-cell u-right-cell u-size-38 u-image-1"
+            >
               <div className="u-container-layout u-container-layout-2"></div>
             </div>
           </div>
@@ -159,20 +187,32 @@ export const IndexPageTemplate = ({
       <div className="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
         <div className="u-layout">
           <div className="u-layout-row">
-            <div className="u-container-style u-image u-layout-cell u-right-cell u-size-15 u-size-30-md u-image-1">
+            <div
+              className="u-container-style u-image u-layout-cell u-right-cell u-size-15 u-size-30-md u-image-1"
+              style={{
+                backgroundImage:
+                  sectionThree.imageOne && extractImage(sectionThree.imageOne)
+                    ? `url(${extractImage(sectionThree.imageOne)})`
+                    : undefined,
+              }}
+            >
               <div className="u-container-layout u-container-layout-1"></div>
             </div>
-            <div className="u-container-style u-image u-layout-cell u-size-15 u-size-30-md u-image-2">
+            <div
+              className="u-container-style u-image u-layout-cell u-size-15 u-size-30-md u-image-2"
+              style={{
+                backgroundImage:
+                  sectionThree.imageTwo && extractImage(sectionThree.imageTwo)
+                    ? `url(${extractImage(sectionThree.imageTwo)})`
+                    : undefined,
+              }}
+            >
               <div className="u-container-layout u-valign-bottom-lg u-valign-bottom-xl u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-container-layout-2"></div>
             </div>
             <div className="u-container-style u-layout-cell u-size-15 u-size-30-md u-layout-cell-3">
               <div className="u-container-layout u-valign-bottom-lg u-valign-bottom-md u-valign-bottom-sm u-valign-bottom-xs u-container-layout-3">
                 <img
-                  src={
-                    sectionThree.image.childImageSharp
-                      ? sectionThree.image.childImageSharp.fluid.src
-                      : sectionThree.image
-                  }
+                  src={extractImage(sectionThree.imageThree)}
                   alt=""
                   className="u-image u-image-default u-image-3"
                   data-image-width="422"
@@ -201,7 +241,15 @@ export const IndexPageTemplate = ({
                 <p className="u-text u-text-2">{sectionFour.subtitle}</p>
               </div>
             </div>
-            <div className="u-container-style u-image u-layout-cell u-right-cell u-size-23 u-image-1">
+            <div
+              className="u-container-style u-image u-layout-cell u-right-cell u-size-23 u-image-1"
+              style={{
+                backgroundImage:
+                  sectionFour.image && extractImage(sectionFour.image)
+                    ? `url(${extractImage(sectionFour.image)})`
+                    : undefined,
+              }}
+            >
               <div className="u-container-layout u-container-layout-2"></div>
             </div>
           </div>
@@ -244,11 +292,7 @@ export const IndexPageTemplate = ({
                     className="u-expanded-width-xs u-image u-image-default u-image-1"
                     data-image-width="864"
                     data-image-height="1080"
-                    src={
-                      section.image?.childImageSharp
-                        ? section.image.childImageSharp.fluid.src
-                        : section.image
-                    }
+                    src={extractImage(section.image)}
                   />
                   <h4 className="u-text u-text-1">{section.title}</h4>
                   <div className="u-text u-text-grey-40 u-text-2">
@@ -272,11 +316,7 @@ export const IndexPageTemplate = ({
               <div className="u-back-slide">
                 <img
                   className="u-back-image u-expanded"
-                  src={
-                    image.image?.childImageSharp
-                      ? image.image.childImageSharp.fluid.src
-                      : image.image
-                  }
+                  src={extractImage(image.image)}
                 />
               </div>
               <div className="u-over-slide u-shading u-over-slide-1">
@@ -298,11 +338,7 @@ export const IndexPageTemplate = ({
               <img
                 alt=""
                 className="u-blog-control u-expanded-width u-image u-image-default u-image-3"
-                src={
-                  post.node.frontmatter.featuredimage?.childImageSharp
-                    ? post.node.frontmatter.featuredimage.childImageSharp.fluid.src
-                    : post.node.frontmatter.featuredimage
-                }
+                src={extractImage(post.node.frontmatter.featuredimage)}
                 data-image-width="1199"
                 data-image-height="1500"
               />
@@ -327,6 +363,11 @@ export const IndexPageTemplate = ({
     </section>
     <section
       className="u-align-left u-clearfix u-image u-shading u-section-9"
+      style={{
+        backgroundImage: contactUs.backgroundImage
+          ? `url(${extractImage(contactUs.backgroundImage)})`
+          : undefined,
+      }}
       id="carousel_48db"
     >
       <div className="u-clearfix u-sheet u-sheet-1">
