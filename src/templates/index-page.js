@@ -1,11 +1,77 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
 import Layout from "../components/Layout";
 // import Image from "gatsby/image";
 // import Features from "../components/Features";
 // import BlogRoll from "../components/BlogRoll";
+
+const TabList = ({ sectionList }) => {
+  const [tabSelected, selectTab] = useState(sectionList[0].id);
+  const onTabClicked = (e) => {
+    e.preventDefault();
+    console.log(e.target.href.replace(/http.[^#]*#/g, ''))
+    selectTab(e.target.href.replace(/http.[^#]*#/g, ''));
+  };
+  return (
+    <section className="u-align-center u-clearfix u-section-6" id="carousel_f07a">
+      <div className="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xl u-sheet-1">
+        <div className="u-expanded-width u-tab-links-align-justify u-tabs u-tabs-1">
+          <ul
+            className="u-border-1 u-border-grey-25 u-tab-list u-unstyled"
+            role="tablist"
+          >
+            {sectionList.map((section) => (
+              <li key={section.id} className="u-tab-item" role="presentation">
+                <a
+                  className={`u-active-white u-border-2 u-border-active-black u-border-grey-40 u-border-hover-grey-15 u-border-no-left u-border-no-right u-border-no-top u-button-style u-tab-link u-text-active-black u-text-grey-40 u-text-hover-black u-tab-link-1 ${
+                    section.id === tabSelected ? "active" : ""
+                  }`}
+                  id="link-tab-0da5"
+                  href={`#${section.id}`}
+                  onClick={onTabClicked}
+                  role="tab"
+                  aria-controls="tab-0da5"
+                  aria-selected={section.id === tabSelected ? "true" : "false"}
+                >
+                  {section.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="u-tab-content">
+            {sectionList.map((section, index) => (
+              <div
+                key={section.id}
+                className={`u-container-style u-tab-pane u-white u-tab-pane-${
+                  index + 1
+                } ${section.id === tabSelected ? "u-tab-active" : ""}`}
+                id={section.id}
+                role="tabpanel"
+                aria-labelledby="link-tab-0da5"
+              >
+                <div className="u-container-layout u-valign-top u-container-layout-1">
+                  <img
+                    alt=""
+                    className="u-expanded-width-xs u-image u-image-default u-image-1"
+                    data-image-width="864"
+                    data-image-height="1080"
+                    src={extractImage(section.image)}
+                  />
+                  <h4 className="u-text u-text-1">{section.title}</h4>
+                  <div className="u-text u-text-grey-40 u-text-2">
+                    {section.description}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const useCarouselTransition = (ms = 500, handleChangeActiveImage = () => {}) => {
   const [outgoingImageClass, setOutgoingImageClass] = useState("u-active");
@@ -256,55 +322,7 @@ export const IndexPageTemplate = ({
         </div>
       </div>
     </section>
-    <section className="u-align-center u-clearfix u-section-6" id="carousel_f07a">
-      <div className="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xl u-sheet-1">
-        <div className="u-expanded-width u-tab-links-align-justify u-tabs u-tabs-1">
-          <ul
-            className="u-border-1 u-border-grey-25 u-tab-list u-unstyled"
-            role="tablist"
-          >
-            {sectionFive.map((section) => (
-              <li className="u-tab-item" role="presentation">
-                <a
-                  className="active u-active-white u-border-2 u-border-active-black u-border-grey-40 u-border-hover-grey-15 u-border-no-left u-border-no-right u-border-no-top u-button-style u-tab-link u-text-active-black u-text-grey-40 u-text-hover-black u-tab-link-1"
-                  id="link-tab-0da5"
-                  href="#tab-0da5"
-                  role="tab"
-                  aria-controls="tab-0da5"
-                  aria-selected="true"
-                >
-                  {section.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <div className="u-tab-content">
-            {sectionFive.map((section) => (
-              <div
-                className="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1"
-                id="tab-0da5"
-                role="tabpanel"
-                aria-labelledby="link-tab-0da5"
-              >
-                <div className="u-container-layout u-valign-top u-container-layout-1">
-                  <img
-                    alt=""
-                    className="u-expanded-width-xs u-image u-image-default u-image-1"
-                    data-image-width="864"
-                    data-image-height="1080"
-                    src={extractImage(section.image)}
-                  />
-                  <h4 className="u-text u-text-1">{section.title}</h4>
-                  <div className="u-text u-text-grey-40 u-text-2">
-                    {section.description}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
+    <TabList sectionList={sectionFive} />
     <section className="u-clearfix u-valign-middle u-section-7" id="carousel_cf20">
       <div
         className="u-expanded-width u-gallery u-layout-grid u-lightbox u-show-text-on-hover u-gallery-1"
@@ -312,7 +330,7 @@ export const IndexPageTemplate = ({
       >
         <div className="u-gallery-inner u-gallery-inner-1">
           {sectionSix.map((image) => (
-            <div className="u-effect-fade u-gallery-item" data-pswp-item-id="0">
+            <div className="u-effect-fade u-gallery-item" key={image.id}>
               <div className="u-back-slide">
                 <img
                   className="u-back-image u-expanded"
@@ -334,7 +352,10 @@ export const IndexPageTemplate = ({
         <p className="u-text u-text-2">{sectionSeven.subtitle}</p>
         <div className="u-blog u-expanded-width u-repeater u-repeater-1">
           {posts.map((post) => (
-            <div className="u-container-layout u-similar-container u-valign-bottom u-container-layout-3">
+            <div
+              className="u-container-layout u-similar-container u-valign-bottom u-container-layout-3"
+              key={post.node.fields.slug}
+            >
               <img
                 alt=""
                 className="u-blog-control u-expanded-width u-image u-image-default u-image-3"
@@ -343,12 +364,12 @@ export const IndexPageTemplate = ({
                 data-image-height="1500"
               />
               <h4 className="u-blog-control u-text u-text-5">
-                <a className="u-post-header-link" href="#">
-                  {post.title}
+                <a className="u-post-header-link" href={post.node.fields.slug}>
+                  {post.node.frontmatter.title}
                 </a>
               </h4>
               <div className="u-blog-control u-metadata u-text-grey-30 u-metadata-3">
-                <span className="u-meta-date u-meta-icon">{post.date}</span>
+                <span className="u-meta-date u-meta-icon">{post.node.frontmatter.date}</span>
               </div>
               <a
                 href={post.node.fields.slug}
@@ -662,8 +683,9 @@ export const pageQuery = graphql`
               }
             }
           }
+          id
           title
-          subtitle
+          description
         }
         sectionSix {
           image {
@@ -674,7 +696,7 @@ export const pageQuery = graphql`
             }
           }
           title
-          subtitle
+          description
         }
         sectionSeven {
           image {
