@@ -128,7 +128,7 @@ collections:
               widget: object,
               fields:
                 [
-                  { label: "Background Image", name: backgroundImage, widget: text },
+                  { label: "Background Image", name: backgroundImage, widget: image },
                   { label: Link, name: link, widget: text },
                   { label: Method, name: method, widget: text },
                   {
