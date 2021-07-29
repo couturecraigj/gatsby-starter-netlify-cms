@@ -650,11 +650,32 @@ export const pageQuery = graphql`
               }
             }
           }
+          backgroundImage {
+            childImageSharp {
+              fluid(maxWidth: 1100, quality: 85) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
           title
           subtitle
         }
         sectionThree {
-          image {
+          imageOne {
+            childImageSharp {
+              fluid(maxWidth: 640, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          imageTwo {
+            childImageSharp {
+              fluid(maxWidth: 640, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          imageThree {
             childImageSharp {
               fluid(maxWidth: 640, quality: 100) {
                 ...GatsbyImageSharpFluid
@@ -712,6 +733,13 @@ export const pageQuery = graphql`
         contactUs {
           link
           method
+          backgroundImage {
+            childImageSharp {
+              fluid(maxWidth: 1800, quality: 90) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
           email {
             label
             placeholder
