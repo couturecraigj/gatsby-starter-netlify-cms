@@ -1,38 +1,60 @@
 ---
 templateKey: index-page
 sectionOne:
-  [
-    { image: /img/coffee.png, title: Lorem, subtitle: lorem, link: /nowhere },
-    { image: /img/coffee.png, title: Lorem 2, subtitle: lorem 2, link: /nowhere },
-  ]
+  - image: /img/istock-1049388950.jpg
+    title: Lorem
+    subtitle: lorem
+    link: /nowhere
+  - image: /img/istock-1177882525.jpg
+    title: Lorem 2
+    subtitle: lorem 2
+    link: /nowhere
 sectionTwo:
-  image: /img/coffee.png
+  image: /img/istock-1192834365.jpg
   title: Lorem
   subtitle: lorem
   link: /somewhere
+  backgroundImage: /img/istock-1177882525.jpg
 sectionThree:
   image: /img/coffee.png
   title: Lorem
   subtitle: lorem
   description: Lorem
+  imageOne: /img/istock-1049388950.jpg
+  imageTwo: /img/istock-1177882525.jpg
+  imageThree: /img/istock-545378314.jpg
 sectionFour:
-  image: /img/coffee.png
+  image: /img/istock-1177882525.jpg
   title: Lorem
   subtitle: lorem
 sectionFive:
-  [
-    { id: section-five-1, image: /img/coffee.png, title: Lorem, description: Lorem },
-    { id: section-five-2, title: Lorem, description: Lorem, image: /img/blog-index.jpg },
-    { id: section-five-3, title: Lorem, description: Lorem, image: /img/blog-index.jpg },
-  ]
+  - id: section-five-1
+    image: /img/istock-1049388950.jpg
+    title: Lorem
+    description: Lorem
+  - id: section-five-2
+    title: Lorem
+    description: Lorem
+    image: /img/istock-1192834365.jpg
+  - id: section-five-3
+    title: Lorem
+    description: Lorem
+    image: /img/istock-545378314.jpg
 sectionSix:
-  [
-    { id: section-six-1, image: /img/coffee.png, title: Lorem, description: Lorem },
-    { id: section-six-2, title: Lorem, description: Lorem, image: /img/blog-index.jpg },
-    { id: section-six-3, title: Lorem, description: Lorem, image: /img/blog-index.jpg },
-  ]
+  - id: section-six-1
+    image: /img/istock-1049388950.jpg
+    title: Lorem
+    description: Lorem
+  - id: section-six-2
+    title: Lorem
+    description: Lorem
+    image: /img/istock-1177882525.jpg
+  - id: section-six-3
+    title: Lorem
+    description: Lorem
+    image: /img/istock-545378314.jpg
 sectionSeven:
-  image: /img/coffee.png
+  image: /img/istock-1192834365.jpg
   title: Lorem
   subtitle: lorem
 contactUs:
@@ -53,6 +75,7 @@ contactUs:
   message:
     label: Message
     placeholder: Enter your message
-image: /img/blog-index.jpg
+  backgroundImage: " "
+image: /img/istock-1177882525.jpg
 heading: Solar Pathways
 ---
