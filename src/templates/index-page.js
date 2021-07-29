@@ -733,13 +733,13 @@ export const pageQuery = graphql`
         contactUs {
           link
           method
-          # backgroundImage {
-          #   childImageSharp {
-          #     fluid(maxWidth: 1800, quality: 90) {
-          #       ...GatsbyImageSharpFluid
-          #     }
-          #   }
-          # }
+          backgroundImage {
+            childImageSharp {
+              fluid(maxWidth: 1800, quality: 90) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
           email {
             label
             placeholder
