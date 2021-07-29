@@ -57,22 +57,28 @@ collections:
                   { label: Link, name: link, widget: text },
                 ],
             }
-          - { label: "Section Two", name: sectionTwo, widget: object, fields: [
+          - {
+              label: "Section Two",
+              name: sectionTwo,
+              widget: object,
+              fields:
+                [
                   { label: Image, name: image, widget: image },
-                  { label: 'Background Image', name: backgroundImage, widget: image },
+                  { label: "Background Image", name: backgroundImage, widget: image },
                   { label: Title, name: title, widget: text },
                   { label: Subtitle, name: subtitle, widget: text },
                   { label: Link, name: link, widget: text },
-                ] }
+                ],
+            }
           - {
               label: "Section Three",
               name: sectionThree,
               widget: object,
               fields:
                 [
-                  { label: 'Image 1', name: imageOne, widget: image },
-                  { label: 'Image 2', name: imageTwo, widget: image },
-                  { label: 'Image 3', name: imageThree, widget: image },
+                  { label: "Image 1", name: imageOne, widget: image },
+                  { label: "Image 2", name: imageTwo, widget: image },
+                  { label: "Image 3", name: imageThree, widget: image },
                   { label: Description, name: description, widget: text },
                 ],
             }
@@ -128,7 +134,12 @@ collections:
               widget: object,
               fields:
                 [
-                  { label: "Background Image", name: backgroundImage, widget: image },
+                  {
+                    label: "Background Image",
+                    name: backgroundImage,
+                    widget: image,
+                    required: false,
+                  },
                   { label: Link, name: link, widget: text },
                   { label: Method, name: method, widget: text },
                   {
