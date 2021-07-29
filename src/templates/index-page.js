@@ -633,7 +633,7 @@ export const pageQuery = graphql`
         sectionOne {
           image {
             childImageSharp {
-              fluid(maxWidth: 240, quality: 64) {
+              fluid(maxWidth: 1800, quality: 100) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -645,7 +645,7 @@ export const pageQuery = graphql`
         sectionTwo {
           image {
             childImageSharp {
-              fluid(maxWidth: 240, quality: 64) {
+              fluid(maxWidth: 1100, quality: 85) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -656,7 +656,7 @@ export const pageQuery = graphql`
         sectionThree {
           image {
             childImageSharp {
-              fluid(maxWidth: 240, quality: 64) {
+              fluid(maxWidth: 640, quality: 100) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -667,7 +667,7 @@ export const pageQuery = graphql`
         sectionFour {
           image {
             childImageSharp {
-              fluid(maxWidth: 240, quality: 64) {
+              fluid(maxWidth: 640, quality: 100) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -678,7 +678,7 @@ export const pageQuery = graphql`
         sectionFive {
           image {
             childImageSharp {
-              fluid(maxWidth: 240, quality: 64) {
+              fluid(maxWidth: 980, quality: 85) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -690,7 +690,7 @@ export const pageQuery = graphql`
         sectionSix {
           image {
             childImageSharp {
-              fluid(maxWidth: 240, quality: 64) {
+              fluid(maxWidth: 640, quality: 90) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -701,7 +701,7 @@ export const pageQuery = graphql`
         sectionSeven {
           image {
             childImageSharp {
-              fluid(maxWidth: 240, quality: 64) {
+              fluid(maxWidth: 365, quality: 90) {
                 ...GatsbyImageSharpFluid
               }
             }
