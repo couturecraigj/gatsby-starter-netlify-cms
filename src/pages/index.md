@@ -75,7 +75,7 @@ contactUs:
   message:
     label: Message
     placeholder: Enter your message
-  backgroundImage: ""
+  backgroundImage: /img/istock-1192834365.jpg
 image: /img/istock-1177882525.jpg
 heading: Solar Pathways
 ---
